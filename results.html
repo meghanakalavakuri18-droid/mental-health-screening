@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screening Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>MindCare</h2>
+    <a href="/">Home</a>
+    <a href="/support">Get Support</a>
+</nav>
+
+<div class="result-card">
+    <h1>Your Screening Report</h1>
+
+    <h3>Name: {{ name }}</h3>
+    <h3>Age: {{ age }}</h3>
+
+    <div class="score">
+        <h2>{{ score }} / 24</h2>
+        <p>Illustrative screening score</p>
+    </div>
+
+    <h2>{{ level }}</h2>
+
+    <p>{{ message }}</p>
+
+    <div class="notice">
+        <strong>Important:</strong>
+        This score is not a medical diagnosis. It does not establish
+        whether you have depression, anxiety or another condition.
+        Please consult a qualified mental health professional
+        for an assessment.
+    </div>
+
+    <a href="/support" class="button-link">Mental Health Support</a>
+    <a href="/" class="button-link">Back to Home</a>
+</div>
+
+</body>
+</html>

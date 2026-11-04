@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mental Health Questionnaire</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>MindCare</h2>
+    <a href="/">Home</a>
+    <a href="/support">Get Support</a>
+</nav>
+
+<div class="container">
+    <h1>Mental Wellbeing Questionnaire</h1>
+
+    <p>Think about your experiences during the last two weeks.</p>
+    <p>0 = Never | 1 = Occasionally | 2 = Often | 3 = Almost every day</p>
+
+    <form action="/submit" method="POST" id="screeningForm">
+
+        <div class="question safety">
+            <h3>1. Are you thinking about hurting yourself or ending your life?</h3>
+            <label><input type="radio" name="crisis" value="yes" required> Yes</label>
+            <label><input type="radio" name="crisis" value="no"> No</label>
+        </div>
+
+        <div class="question safety">
+            <h3>2. Do you feel you might act on these thoughts or are you in immediate danger?</h3>
+            <label><input type="radio" name="immediate_danger" value="yes" required> Yes</label>
+            <label><input type="radio" name="immediate_danger" value="no"> No</label>
+        </div>
+
+        <div id="routineQuestions">
+            {% for question in questions %}
+            <div class="question">
+                <h3>{{ loop.index + 2 }}. {{ question }}</h3>
+
+                <select name="q{{ loop.index0 }}" required>
+                    <option value="">Select your answer</option>
+                    <option value="0">Never</option>
+                    <option value="1">Occasionally</option>
+                    <option value="2">Often</option>
+                    <option value="3">Almost every day</option>
+                </select>
+            </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit">Submit Screening</button>
+
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

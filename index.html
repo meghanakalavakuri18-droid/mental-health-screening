@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MindCare - Mental Health Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>MindCare</h2>
+    <a href="/">Home</a>
+    <a href="/support">Get Support</a>
+</nav>
+
+<section class="hero">
+    <h1>Your Mental Wellbeing Matters</h1>
+    <p>A safe place to reflect on your mental wellbeing.</p>
+
+    <div class="hero-card">
+        <h2>Take a Mental Wellbeing Screening</h2>
+        <p>Answer a few questions to understand your recent experiences.</p>
+
+        <form action="/questionnaire" method="POST">
+            <input type="text" name="name" placeholder="Enter your name" required>
+
+            <input type="number" name="age" placeholder="Enter your age"
+                   min="1" max="120" required>
+
+            <button type="submit">Start Screening</button>
+        </form>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h3>Wellbeing Screening</h3>
+        <p>Reflect on stress, sleep and emotional wellbeing.</p>
+    </div>
+
+    <div class="feature">
+        <h3>Safety Support</h3>
+        <p>Find guidance and crisis support resources.</p>
+    </div>
+
+    <div class="feature">
+        <h3>Private Prototype</h3>
+        <p>Your responses are stored locally in this demonstration.</p>
+    </div>
+</section>
+
+<footer>
+    <p>MindCare | Mental Health Screening Project</p>
+    <p>Not a medical diagnosis or substitute for professional care.</p>
+</footer>
+
+</body>
+</html>
